@@ -2,14 +2,79 @@
 
 * {
     border-style: border-box;
+    margin: 0px;
+    border: 0px;
 }
 body {
     font-family: 'Roboto', sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    overflow: hidden;
-    margin: 0;
+    overflow-x: hidden;
+    background-color: cadetblue;
+    color: aliceblue;
+}
+.container {
+    position: absolute;
+    background-color: cornsilk;
+    color: black;
+    transform-origin: 0 0;
+    transition: 3s ease-in;
+}
+.container.rotate{
+    transform: rotate(-20deg);
+   }
+.rotate-container {
+    margin: 50px 50px;
+}
+
+.circle {
+    position: fixed;
+    background-color: red;
+    margin-left: -100px;
+    margin-top: -100px;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    z-index: 100;
+}
+
+@keyframes show {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+button.show {
+    display: block;
+    margin-left: 130px;
+    margin-top: 130px;
+    background-color: transparent;
+    font-size: 30px;
+    color: white;
+    z-index: 110;
+    animation: show 5s;
+}
+
+button.hide {
+    display: none;
+}
+nav {
+    position: fixed;
+    bottom: 30px;
+    line-height: 1.5em;
+    list-style: none;
+}
+nav li {
+    margin-left: -100%;
+    transition: 3s ease-in;
+}
+nav.rotate li {
+    transform: translateX(70%);
+}
+nav.rotate  li + li{
+    transform: translateX(100%);
+}
+nav.rotate li + li + li {
+    transform: translateX(130%);
 }
